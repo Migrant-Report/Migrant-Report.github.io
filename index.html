@@ -13,24 +13,24 @@
 	<meta property="og:url" content="http://migrant-report.github.io/" />
 	<meta property="og:image" content="http://migrantreport.org/wp-content/uploads/main_thumbnail_1.png" />
   <style>
-    html, body {width:100%; height:100%; padding: 0; margin: 0;}
+    html, body {width:100%; height:100%; padding: 0; margin: 0;font-family: 'Open Sans', sans-serif;}
     #map { width: 100%; height:610; background: black;}
-    #menu { position: absolute; top: 70; left: 10; width: 130px; height:460px; z-index:10;border: 0px solid #777777;}
+    #menu { position: absolute; top: 100; left: 10; width: 130px; height:460px; z-index:10;border: 0px solid #777777;}
     #menu a { 
-	box-shadow: 2px 2px 2px #888888;
-	  opacity: 0.7;
+	
+	  opacity: 0.6;
       margin: 8px 0px 0 0;
       float: left;
       vertical-align: baseline;
       width: 115px;
-      padding: 3px;
+      padding: 2px;
       text-align: center;
       font: bold 12px "Open Sans",sans-serif;
       line-height: normal;
       color: white;
       border-radius: 4px;
       border: 0.5px solid white;
-      background: #003E7D;
+      background: #339BEB;
       text-decoration: none;
       cursor: pointer;
     }
@@ -40,46 +40,29 @@
     }
 	
 	#dashboard {
-	      /box-shadow: 2px 2px 2px #888888;
-	      border: 1px solid #777777;	 
+	      
+	      border: 1px solid #333333;		 
 	      border-radius: 4px;
-          background: white;
+          background: #262626;
           //border-left: 0px solid #000;    
-          height: 400;
+          height: 412;
           font-family: 'Open Sans', sans-serif;
 		  color: white;          
           padding-top: 3px;
           position: absolute;
-          left: 145;
+          left: 140;
           text-align: left;
           top: 135;
           z-index: 2001;
           opacity: 1;
-          width: 210px;
+          width: 190px;
       }
-	  #dashboard3 {
-	       
-	      border-radius: 4px;
-          background: #F5F5F5;
-          //border-left: 0px solid #000;    
-          height: 30;
-          font-family: 'Open Sans', sans-serif;
-		  color: white;          
-          padding: 0px;
-          position: absolute;
-          left: 145;
-          text-align: left;
-          bottom: 20;
-          z-index: 2001;
-          opacity: 1;
-          width: 225px;
-      }
-
+	 
 	  #dashboard2 {
-	      border: 1px solid #777777;
-		  box-shadow: 5px 5px 5px #888888;
+	      border: 1px solid #333333;	
+		  
 	      border-radius: 4px;
-          background: #F5F5F5;
+          background: #1a1a1a;
           height: 590;
           color: white;
           padding: 0px;
@@ -89,7 +72,7 @@
           top: 10;
           z-index: 2001;
           opacity: 1;
-          width: 370px;
+          width: 340px;
           
           ul.share-buttons{
 	list-style: none;
@@ -125,7 +108,7 @@
      position:'topright'
 	}).addTo(map);
 	
-	 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+	 L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
       attribution: '<a href="http://migrantreport.org/">Map created by Migrant Report.'
     }).addTo(map);
 	
@@ -178,15 +161,9 @@
 	sublayer.on('featureClick',function(e, latlng, pos, data, subLayerIndex) {
 		
 		$("#header").html("<p>" + data.a_location +  "</p>   ");
-		$("#event3").html("<p>"+"Incident: " + data.a_incident+  "</p>");
-		//$("#event1").html("<p>"+ data.b_physical +" Physical Abuse" +"</p>");
-		//$("#event2").html("<p>"+ data.b_sexual +" Sexual Abuse" +"</p>");
-		//$("#event4").html("<p>"+ data.b_kidnapping +" Incidents of Kisnapping" + "</p>");
-		//$("#event5").html("<p>"+ data.b_extortion +" Extortion" +"</p>");
-		//$("#event6").html("<p>"+ data.b_missing +" Missing People" + "</p>");
-		//$("#event7").html("<p>"+ data.b_death +" Deaths" +"</p>");
-		//$("#event7").html("<p>"+ data.b_food_and_water_problems +" Lack of Food/Water" +"</p>");
-			  	
+		$("#event3").html("<p>"+"<u>"+"Incident type: "+"</u>" + data.a_incident+  "</p>");
+		$("#event4").html("<p>"+"<u>"+"Number of incidents: "+"</u>"  + data.a_no_incidents+  "</p>");
+		
 		});
 
 
@@ -325,7 +302,7 @@
 
 <body onload="init()">
   <div id='map'></div>
-    <div style="position:relative;top:-600px;left: -80px; background-color:#fff; opacity: 1; text-align: center">
+     <div style="position:absolute;float:right;top:13px;right: 60px; background-color:#fff; opacity: 0.7; text-align: center">
 	<a href="http://migrantreport.org/">
 		<img src="http://migrantreport.org/wp-content/uploads/migrant-report-logo.jpg" alt="migrnats" style="float:right;width:45px;height:40px;font-size:25;opacity: 0.7">
     </a>
@@ -335,23 +312,24 @@
 	
 
     <div id="dashboard2">
-    <p style ="text-align: center;font-size:22;color:black;font-weight:bold;padding:10px;margin-bottom:0px;margin-top:0px;font-family: 'Open Sans', sans-serif;opacity: 0.8">Mixed Migration Mechanism Initiative</p>
-    <p><img src="http://migrantreport.org/wp-content/uploads/4mi1.png" alt="migrnats" style="float:right;width:100px;height:40px;opacity: 0.8;padding: 0px 0px 0px;margin-top:-5px;margin-right:60;"></p>
+    <div><img src="http://migrantreport.org/wp-content/uploads/4mi1_white.png" alt="migrnats" style="margin-top: 10px;margin-left: 130px;width:70px;opacity: 0.7"></div>
+    <p style ="text-align: center;font-size:19;color:white;font-weight:bold;padding:10px;margin-bottom:0px;margin-top:0px;font-family: 'Open Sans', sans-serif;opacity: 0.8">Spatial Distribution of Incidents Suffered by Migrants - Filters</p>
+    
     <div id='menu'>
-	<p style ="text-align: left;font-size:13;color:black;font-weight: bold;margin-bottom:-3px;font-family: 'Open Sans', sans-serif;">Filter by Incident</p>
+	<p style ="text-align: left;font-size:12;color:white;font-weight: bold;margin-bottom:-3px;">Filter by Incident</p>
     <a href="#physical" id="physical" class="button capitals">Physical Abuse</a> 
     <a href="#Sexual" id="Sexual" class="button megacities">Sexual Abuse</a> 
 	<a href="#kidnap" id="kidnap" class="button capitals">Kidnapping</a> 
     <a href="#extorsion" id="extorsion" class="button megacities">Extortion</a> 
 	<a href="#Missing" id="Missing" class="button megacities">Missing People</a> 
 	<a href="#deaths" id="deaths" class="button megacities">Deaths</a>
-	<a style ="margin-bottom:10px" href="#food_water" id="food_water" class="button megacities">Lack of Food/Water</a>
-	<p style ="text-align: left;font-size:13;color:black;font-weight: bold;padding:0px;margin-bottom:-3px;font-family: 'Open Sans', sans-serif;">Filter by Origin</p>
+	<a style ="margin-bottom:10px;" href="#food_water" id="food_water" class="button megacities">Lack of Food/Water</a>
+	<p style ="text-align: left;font-size:12;color:white;font-weight: bold;padding:0px;margin-bottom:-3px;">Filter by Origin</p>
     <a href="#djibouti" id="djibouti" class="button megacities">Djibouti</a> 
 	<a href="#eritrea" id="eritrea" class="button capitals">Eritrea</a> 
     <a href="#somalia" id="somalia" class="button megacities">Somalia</a> 
 	<a style ="margin-bottom:10px" href="#ethiopia" id="ethiopia" class="button megacities">Ethiopia</a>
-	<p style ="text-align: left;font-size:13;color:black;font-weight: bold;padding:0px;margin-bottom:-3px;font-family: 'Open Sans', sans-serif;">Filter by Gender</p>
+	<p style ="text-align: left;font-size:12;color:white;font-weight: bold;padding:0px;margin-bottom:-3px;">Filter by Gender</p>
 	<a href="#male" id="male" class="button megacities">Male</a>
 	<a href="#female" id="female" class="button megacities">Female</a>
   </div> 
@@ -359,24 +337,22 @@
   
   <div style ="font-size:15;color:#54544F;opacity: 1;padding: 0px 10px 0px;margin: 0cm 0cm 0cm 0cm;text-align: center;margin-top: 0px">
   
-  <div id="header" style ="margin-bottom:0px;margin-top:0px;font-size:18;color:#3B3B37; top:0px;padding-left:10px;font-weight: bold"></div>  
-  <p id="event3" style ="margin-bottom:20px;margin-top:4px;font-size:13;color:#3B3B37; top:0px;padding-left:10px;font-weight: bold"></p>
-  <p id="event1" style ="margin-bottom:10px;margin-top:4px;font-size:11;color:#3B3B37; top:0px;padding-left:10px"><img src="http://migrantreport.org/wp-content/uploads/finger_06.png" alt="migrnats" style="padding-right:10px;float:right;width:170px;height:80px;font-size:20;opacity: 1;margin-top:5px,">Click over the symbols to display the location and incident type.</p>  
-  <p id="event2" style ="margin-bottom:10px;margin-top:4px;font-size:11;color:#3B3B37; top:0px;padding-left:10px"><img src="http://migrantreport.org/wp-content/uploads/finger_07.png" alt="migrnats" style="padding-right:10px;float:right;width:170px;height:80px;font-size:20;opacity: 1;margin-top: -15px,">Click over the lines to display pictures.(only available for the East-African route).</p>
-
+  <div id="header" style ="margin-bottom:-10px;margin-top:0px;font-size:17;color:white; top:0px;padding-left:10px;font-weight: bold"></div>  
+  <p id="event3" style ="text-align: center;margin-bottom:5px;margin-top:4px;font-size:13;color:white; top:0px;padding-left:10px;opacity: 0.8"></p>
+  <p id="event4" style ="text-align: center;margin-bottom:20px;margin-top:0px;font-size:13;color:white; top:0px;padding-left:10px;opacity: 0.8"></p>
+  <p id="event1" style ="margin-bottom:10px;margin-top:4px;font-size:11;color:white; top:0px;padding-left:10px;opacity: 0.8"><img src="http://migrantreport.org/wp-content/uploads/finger_06.png" alt="migrnats" style="padding-right:5px;float:right;width:160px;height:80px;font-size:20;opacity: 1;margin-top:5px,">Click to display the data.</p>  
+  <p id="event2" style ="margin-bottom:10px;margin-top:4px;font-size:11;color:white; top:0px;padding-left:10px;opacity: 0.8"><img src="http://migrantreport.org/wp-content/uploads/finger_07.png" alt="migrnats" style="padding-right:5px;float:right;width:160px;height:80px;font-size:20;opacity: 1;margin-top: -15px,">Click to display pictures.(available for the East-African route).</p>
+  
  
 
  </div>
 
   </div>
-  <div id="dashboard3" style= "bot:0px" >
-  <p style ="font-size:10;color:#3B3B37; top:10px;padding-left:0px;margin-bottom:0">Data collected from Oct. 2014 to Oct. 2015</p>
-  <p style ="font-size:10;color:#3B3B37; top:0px;padding-left:0px;margin-top:0">Sample size : 454 </p>
+  
+  <div style ="position:absolute;font-size:10;color:white; bottom:5px;padding-left:10px;opacity: 0.8">Data collected from Oct. 2014 to Oct. 2015/ Sample size : 454</div>
   
   </div>
-  
-  </div>
-   <ul class="share-buttons" style="position:absolute;top:140px;right: 10px;opacity: 1; text-align: center;border:1px;height:250px;width:40px;">
+   <ul class="share-buttons" style="position:absolute;top:140px;right: 10px;opacity: 1; text-align: center;border:1px;height:250px;width:40px;opacity: 0.8">
 	  <a style="padding:5px;" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmigrant-report.github.io%2F&t=Filters" title="Share on Facebook" target="_blank"><img src="http://migrantreport.org/wp-content/uploads/Facebook.png"></a>
 	  <a style="padding:5px;" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fmigrant-report.github.io%2F&text=Filters:%20http%3A%2F%2Fmigrant-report.github.io%2F&via=Pablo200381" target="_blank" title="Tweet"><img src="http://migrantreport.org/wp-content/uploads/Twitter.png"></a>
 	  <a style="padding:5px;" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fmigrant-report.github.io%2F&title=Filters&summary=The%204Mi%20is%20an%20innovative%2C%20low-cost%20approach%20to%20collect%20and%20analyse%20data%20on%20mixed%20migration%20flows%2C%20initially%20out%20of%20the%20Horn%20of%20Africa.&source=http%3A%2F%2Fmigrant-report.github.io%2F" target="_blank" title="Share on LinkedIn"><img src="http://migrantreport.org/wp-content/uploads/LinkedIn.png"></a>
